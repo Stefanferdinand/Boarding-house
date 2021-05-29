@@ -404,3 +404,25 @@ body {
   width: 100px;
   height: 100px;
 }
+
+.account-loading {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 40px;
+  top: 110px;
+}
+
+.error-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.error-actions {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.error-actions .btn {
+  margin-right: 10px;
+}

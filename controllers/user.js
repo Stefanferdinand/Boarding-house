@@ -8,6 +8,21 @@ const handleErrorInsertHouse = (res) => {
   });
 };
 
+const getUserInfo = async (req, res) => {
+  try {
+    let email = req.params.email;
+    const info = await user.find({ email: email });
+
+    if (info[0].ownedHouse.length == 0 && info[0].orderedHouse.length == 0) {
+      res.json({ status: false });
+    } else {
+      res.json({ status: true });
+    }
+  } catch (error) {
+    res.json(error);
+  }
+};
+
 const getAccount = async (req, res) => {
   try {
     const email = req.params.email;
@@ -75,4 +90,4 @@ const deleteOwnedHouse = async (req, res) => {
   }
 };
 
-module.exports = { getAccount, postHouse, deleteOwnedHouse };
+module.exports = { getAccount, postHouse, deleteOwnedHouse, getUserInfo };

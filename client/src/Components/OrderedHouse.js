@@ -6,7 +6,6 @@ function OrderedHouse(props) {
 
   return (
     <div className="ordered-container">
-      {console.log(props.order[0])}
       <div className="ordered-image-container">
         <img className="ordered-image" src={props.data.image}></img>
         <span>{date}</span>

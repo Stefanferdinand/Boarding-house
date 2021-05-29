@@ -6,6 +6,7 @@ import host from "../host";
 
 import OwnedHouse from "./OwnedHouse";
 import OrderedHouse from "./OrderedHouse";
+import { set } from "mongoose";
 
 function Account() {
   const [status, setStatus] = useState(
@@ -19,6 +20,7 @@ function Account() {
   const [orderedHouses, setOrderedHouses] = useState([]);
 
   const [order, setOrder] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleOwnedOrdered = () => {
     axios
@@ -27,6 +29,21 @@ function Account() {
         setOwnedHouses(res.data.ownedHouse);
         setOrderedHouses(res.data.orderedHouse);
         setOrder(res.data.arrOrdered);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getUserInfo = () => {
+    axios
+      .get(`${host}/user/${sessionStorage["userEmail"]}`)
+      .then((res) => {
+        if (res.data.status === true) {
+          setLoading(true);
+          handleOwnedOrdered();
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -55,7 +72,7 @@ function Account() {
   };
 
   useEffect(() => {
-    handleOwnedOrdered();
+    getUserInfo();
   }, []);
 
   return (
@@ -63,6 +80,9 @@ function Account() {
       {insert === true ? <Redirect to="/user/insertHouse" /> : null}
       {logout === true ? <Redirect to="/" /> : null}
       {status === "true" ? null : <Redirect to="/auth/signin" />}
+      {loading === true ? (
+        <div className="spinner-border account-loading" role="status"></div>
+      ) : null}
       <div className="account-container mt-5 pt-5">
         <img className="account-logo" src={accountLogo}></img>
         <span className="font-weight-bold text-primary">
@@ -103,7 +123,7 @@ function Account() {
           )}
           {orderedHouses.length == 0 || order.length == 0 ? null : (
             <div className="ordered">
-              <h1 className="text-info">Owned House</h1>
+              <h1 className="text-info">Ordered House</h1>
               <div className="ordered-item">
                 {orderedHouses.map((it) => {
                   return (
