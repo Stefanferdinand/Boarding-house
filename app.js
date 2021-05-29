@@ -14,7 +14,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/app", express.static(path.join(__dirname, "client", "build")));
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
