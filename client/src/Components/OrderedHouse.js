@@ -7,7 +7,7 @@ function OrderedHouse(props) {
   return (
     <div className="ordered-container">
       <div className="ordered-image-container">
-        <img className="ordered-image" src={props.data.image}></img>
+        <a href={`/house/${props.data._id}`}><img className="ordered-image" src={props.data.image}></img></a>
         <span>{date}</span>
         <span>{duration} Month(s)</span>
       </div>

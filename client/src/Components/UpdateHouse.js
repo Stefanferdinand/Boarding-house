@@ -1,14 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { Redirect } from "react-router";
 import host from "../host";
 
-function InsertHouse() {
+function UpdateHouse() {
   
   const [houseName, setHouseName] = useState("");
-  const [houseOwnerEmail, setHouseOwnerEmail] = useState(
-    window.sessionStorage.getItem("userEmail")
-  );
   const [pricePerMonth, setPricePerMonth] = useState();
   const [address, setAddress] = useState("");
   const [description, setDescription] = useState("");
@@ -19,6 +16,12 @@ function InsertHouse() {
   const [logged, setLogged] = useState(
     window.sessionStorage.getItem("loggedIn")
   );
+
+  const [loading, setLoading] = useState(true);
+
+  const urlParsed = window.location.href.split("/");
+  const urlParam = urlParsed[urlParsed.length - 1];
+  var ownerId;
 
   // function buat mengencode image yang diupload menjadi base64 url string
   const encodeImageFileAsURL = () => {
@@ -42,7 +45,7 @@ function InsertHouse() {
 
     const data = {
       name: houseName,
-      owner: houseOwnerEmail,
+      owner: ownerId,
       pricePerMonth: pricePerMonth,
       address: address,
       description: description,
@@ -50,7 +53,7 @@ function InsertHouse() {
     };
 
     axios
-      .post(`${host}/user/insertHouse`, data)
+      .put(`${host}/user/updateHouse/${urlParam}`, data)
       .then((res) => {
         if (res.data.status == false) {
           setErrorMsg(res.data.msg);
@@ -63,12 +66,37 @@ function InsertHouse() {
       });
   };
 
+  const getHouseData = () => {
+      axios.get(`${host}/user/updateHouse/${urlParam}`)
+      .then((res) => {
+        
+        const data = res.data;
+        ownerId = res.data.owner; // id pemilik rumah
+
+        setHouseName(data.name);
+        setPricePerMonth(data.pricePerMonth);
+        setAddress(data.address);
+        setDescription(data.description);
+        setImage(data.image);
+        setLoading(false);
+
+      })
+      .catch((err) => {
+          console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    getHouseData();
+  }, [])
+
   return (
     <div className="ad-house-container">
       {logged === "true" ? null : <Redirect to="/auth/signin" />}
-      {success === true ? <Redirect to="/" /> : null}
+      {success === true ? <Redirect to="/user/account" /> : null}
+      {loading === true ? <div className="spinner-border account-loading" role="status"></div> : null}
       <div className="mb-4">
-        <h1 className="text-info">Advertise House</h1>
+        <h1 className="text-info">Update House</h1>
         <span className="text-danger mt-1">
           * Please fill in the information below
         </span>
@@ -146,4 +174,4 @@ function InsertHouse() {
   );
 }
 
-export default InsertHouse;
+export default UpdateHouse;

@@ -90,4 +90,32 @@ const deleteOwnedHouse = async (req, res) => {
   }
 };
 
-module.exports = { getAccount, postHouse, deleteOwnedHouse, getUserInfo };
+const updateOwnedHouse = async (req, res) => {
+  try{
+    const id = req.params.id;
+
+    const item = await house.findByIdAndUpdate(id, req.body, {upsert: true}, (err, doc) => {
+      if(err) return res.json({status: false});
+      return res.json({status: true});
+    })
+
+  }
+  catch(error){
+    res.json({status: false});
+  }
+}
+
+const getHouseData = async (req, res) => {
+  try{
+    const id = req.params.id;
+    
+    const data = await house.findById({_id: id});
+
+    res.json(data);
+  }
+  catch(error){
+    res.json(error);
+  }
+}
+
+module.exports = { getAccount, postHouse, deleteOwnedHouse, getUserInfo, updateOwnedHouse, getHouseData };

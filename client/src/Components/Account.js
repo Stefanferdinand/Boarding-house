@@ -6,7 +6,6 @@ import host from "../host";
 
 import OwnedHouse from "./OwnedHouse";
 import OrderedHouse from "./OrderedHouse";
-import { set } from "mongoose";
 
 function Account() {
   const [status, setStatus] = useState(
@@ -15,13 +14,14 @@ function Account() {
 
   const [logout, setLogout] = useState(false);
   const [insert, setInsert] = useState(false);
-
+  
   const [ownedHouses, setOwnedHouses] = useState([]);
   const [orderedHouses, setOrderedHouses] = useState([]);
 
   const [order, setOrder] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // get ownedhouse dan orderedhouse
   const handleOwnedOrdered = () => {
     axios
       .get(`${host}/user/account/${sessionStorage["userEmail"]}`)
@@ -36,6 +36,7 @@ function Account() {
       });
   };
 
+  // mengecek apakah user mempunyai ownedhouse atau orderedhouse
   const getUserInfo = () => {
     axios
       .get(`${host}/user/${sessionStorage["userEmail"]}`)
@@ -59,6 +60,7 @@ function Account() {
     setLogout(true);
   };
 
+  // delete ownedhouse
   const handleRemove = (id) => {
     axios
       .delete(`${host}/user/account/` + id)
@@ -77,6 +79,7 @@ function Account() {
 
   return (
     <div>
+      {}
       {insert === true ? <Redirect to="/user/insertHouse" /> : null}
       {logout === true ? <Redirect to="/" /> : null}
       {status === "true" ? null : <Redirect to="/auth/signin" />}

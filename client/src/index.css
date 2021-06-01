@@ -134,15 +134,29 @@ body {
   display: flex;
   align-items: center;
   text-align: start;
-  padding: 50px 0px;
+  padding: 40px 0px;
 }
 
 .owned-image,
 .ordered-image {
   width: 150px;
   height: 150px;
-  border-radius: 12px;
+  border-radius: 12px; 
+}
+
+.owned-image-container{
+  width: 150px;
+  height: 220px;
   margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.update-btn{
+  padding: 6px;
+  width: 100px;
 }
 
 .owned-container span,
@@ -160,7 +174,7 @@ body {
   margin: 0px;
 }
 
-.owned-container button {
+.owned-container .remove-btn {
   outline: none;
   border: none;
   background-color: inherit;
@@ -170,6 +184,7 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-right: 50px;
 }
 
 .ordered-image-container span {
@@ -177,7 +192,7 @@ body {
   margin-top: 10px;
 }
 
-.ordered-container > span {
+.ordered-container > span, .owned-container > span, .remove-btn {
   padding-bottom: 80px;
 }
 
@@ -426,3 +441,4 @@ body {
 .error-actions .btn {
   margin-right: 10px;
 }
+
