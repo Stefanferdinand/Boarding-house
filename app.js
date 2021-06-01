@@ -21,7 +21,7 @@ app.use("/user", userRoute);
 app.use("/browse", browseRoute);
 app.use("/house", houseRoute);
 
-const CONNECTION_URL = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0.5l5m8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const CONNECTION_URL =  `mongodb+srv://admin:admin@cluster0.5l5m8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const PORT = process.env.PORT || 5000;
 
 mongoose
