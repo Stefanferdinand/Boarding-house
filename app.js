@@ -16,7 +16,9 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, "client", "build")));
 
-// app.use('/*', express.static(path.join(__dirname, "client", "build")));
+app.get('*', (req, res, next) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
 
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
