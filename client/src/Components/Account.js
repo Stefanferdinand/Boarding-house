@@ -74,12 +74,12 @@ function Account() {
   };
 
   useEffect(() => {
+    console.log('useeffect');
     getUserInfo();
   }, []);
 
   return (
     <div>
-      {}
       {insert === true ? <Redirect to="/user/insertHouse" /> : null}
       {logout === true ? <Redirect to="/" /> : null}
       {status === "true" ? null : <Redirect to="/auth/signin" />}

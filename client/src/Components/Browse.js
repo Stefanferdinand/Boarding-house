@@ -12,7 +12,7 @@ function Browse() {
       .then((res) => {
         setHouses(res.data);
 
-        // console.log(res);
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -20,12 +20,13 @@ function Browse() {
   };
 
   useEffect(() => {
+    console.log('useeffect');
     getAllHouse();
   }, []);
 
   return (
     <div>
-      {houses.length == 0 ? (
+      {houses.length === 0 ? (
         <div className="d-flex justify-content-center align-items-center flex-md-column">
           <div className="spinner-border loading" role="status"></div>
           <div className="mt-4">
