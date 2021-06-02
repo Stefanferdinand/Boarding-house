@@ -25,7 +25,7 @@ function Account() {
   const handleOwnedOrdered = () => {
     console.log('handleownedordered');
     axios
-      .get(`${host}/user/account/${sessionStorage["userEmail"]}`)
+      .get(`${host}/user/account/${window.sessionStorage["userEmail"]}`)
       .then((res) => {
         console.log(res);
         setOwnedHouses(res.data.ownedHouse);
@@ -42,7 +42,7 @@ function Account() {
   const getUserInfo = () => {
     console.log('getuserinfo');
     axios
-      .get(`${host}/user/${sessionStorage["userEmail"]}`)
+      .get(`${host}/user/${window.sessionStorage["userEmail"]}`)
       .then((res) => {
         if (res.data.status === true) {
           setLoading(true);

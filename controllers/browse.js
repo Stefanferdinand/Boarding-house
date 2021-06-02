@@ -3,10 +3,8 @@ const house = require("../models/house.js");
 const getBrowse = async (req, res) => {
   try {
     const arrayOfHouse = await house.find();
-    if(req.accepts('application/json')) res.json(arrayOfHouse);
-    else{
-      res.json({error: 'error'});
-    }
+    res.json(arrayOfHouse);
+    
   } catch (error) {
     res.json(error);
   }

@@ -8,7 +8,7 @@ function Browse() {
 
   const getAllHouse = () => {
     axios
-      .get(`${host}/browse/`)
+      .get(`${host}/browse`)
       .then((res) => {
         console.log(res);
         setHouses(res.data);
