@@ -13,11 +13,11 @@ const app = express();
 app.use(express.static(path.join(__dirname, "client", "build")));
 
 
-app.get('/*', (req, res, next) => {
-  req.headers['status'] = 'false';
+// app.get('/*', (req, res, next) => {
+//   req.headers['status'] = 'false';
 
-  if(req.headers.status === 'false')res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
+//   if(req.headers.status === 'false')res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+// });
 
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }));
