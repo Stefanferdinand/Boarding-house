@@ -14,6 +14,7 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.get('/*', (req, res, next) => {
   if(req.is('application/json'))res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  next();
 });
 
 app.use(express.json({ limit: "50mb" }));
