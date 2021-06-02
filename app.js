@@ -10,18 +10,14 @@ require("dotenv").config();
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "client", "build")));
-
-
-// app.get('/*', (req, res, next) => {
-//   req.headers['status'] = 'false';
-
-//   if(req.headers.status === 'false')res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-// });
-
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, "client", "build")));
+
+app.use('/*', express.static(path.join(__dirname, "client", "public")));
+
 
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
