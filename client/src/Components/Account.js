@@ -23,9 +23,11 @@ function Account() {
 
   // get ownedhouse dan orderedhouse
   const handleOwnedOrdered = () => {
+    console.log(handleownedordered);
     axios
       .get(`${host}/user/account/${sessionStorage["userEmail"]}`)
       .then((res) => {
+        console.log(res);
         setOwnedHouses(res.data.ownedHouse);
         setOrderedHouses(res.data.orderedHouse);
         setOrder(res.data.arrOrdered);
@@ -38,6 +40,7 @@ function Account() {
 
   // mengecek apakah user mempunyai ownedhouse atau orderedhouse
   const getUserInfo = () => {
+    console.log('getuserinfo');
     axios
       .get(`${host}/user/${sessionStorage["userEmail"]}`)
       .then((res) => {
