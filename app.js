@@ -12,9 +12,11 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "client", "build")));
 
+
 app.get('/*', (req, res, next) => {
-  if(req.is('application/json'))res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  next();
+  req.headers['status'] = 'false';
+
+  if(req.headers.status === 'false')res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
 app.use(express.json({ limit: "50mb" }));
