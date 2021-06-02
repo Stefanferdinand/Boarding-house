@@ -5,14 +5,12 @@ import host from "../host";
 
 function Browse() {
   const [houses, setHouses] = useState([]);
-  const [noData, setNoData] = useState(true);
 
   const getAllHouse = () => {
     axios
       .get(`${host}/browse/`)
       .then((res) => {
         setHouses(res.data);
-        if (res.data.length > 0) setNoData(false);
 
         // console.log(res);
       })
