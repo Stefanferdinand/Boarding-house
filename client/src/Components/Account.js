@@ -23,7 +23,7 @@ function Account() {
 
   // get ownedhouse dan orderedhouse
   const handleOwnedOrdered = () => {
-    console.log(handleownedordered);
+    console.log('handleownedordered');
     axios
       .get(`${host}/user/account/${sessionStorage["userEmail"]}`)
       .then((res) => {
