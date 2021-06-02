@@ -14,7 +14,7 @@ function Account() {
 
   const [logout, setLogout] = useState(false);
   const [insert, setInsert] = useState(false);
-  
+
   const [ownedHouses, setOwnedHouses] = useState([]);
   const [orderedHouses, setOrderedHouses] = useState([]);
 

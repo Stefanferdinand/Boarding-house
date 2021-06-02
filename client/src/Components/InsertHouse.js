@@ -4,7 +4,7 @@ import { Redirect } from "react-router";
 import host from "../host";
 
 function InsertHouse() {
-  
+
   const [houseName, setHouseName] = useState("");
   const [houseOwnerEmail, setHouseOwnerEmail] = useState(
     window.sessionStorage.getItem("userEmail")

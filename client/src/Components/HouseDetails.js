@@ -22,7 +22,7 @@ function HouseDetails() {
     const id = arr[arr.length - 1];
 
     axios
-      .get(`${host}/house/` + id)
+      .get(`${host}/house/${id}`)
       .then((res) => {
         const data = res.data;
         setHouse(data.house);
