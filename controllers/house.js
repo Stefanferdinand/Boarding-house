@@ -14,9 +14,9 @@ const getHouseDetails = async (req, res) => {
     const selectedHouse = await house.findById(data).limit(1);
     const owner = await user.find({ ownedHouse: selectedHouse._id }).limit(1);
 
-    const email = owner.email;
-    const name = owner.name;
-
+    const email = owner[0].email;
+    const name = owner[0].name;
+    
     res.json({ house: selectedHouse, owner: {email: email, name: name} });
   } catch (error) {
     res.json(error);

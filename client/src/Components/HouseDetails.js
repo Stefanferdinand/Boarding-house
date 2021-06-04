@@ -26,7 +26,7 @@ function HouseDetails() {
       .then((res) => {
         const data = res.data;
         setHouse(data.house);
-        setOwner(data.owner[0]);
+        setOwner(data.owner);
       })
       .catch((err) => {
         console.log(err);
