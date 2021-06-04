@@ -31,7 +31,7 @@ class AuthForm extends Component {
       };
 
       axios
-        .post(`${host}/auth/signup`, data)
+        .post(`${host}/api/auth/signup`, data)
         .then((res) => {
           if (res.data.status == false) {
             // if fail
@@ -52,7 +52,7 @@ class AuthForm extends Component {
       };
 
       axios
-        .post(`${host}/auth/signin`, data)
+        .post(`${host}/api/auth/signin`, data)
         .then((res) => {
           if (res.data.status == false) {
             // if fail

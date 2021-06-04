@@ -25,7 +25,7 @@ function Account() {
   const handleOwnedOrdered = () => {
     console.log('handleownedordered');
     axios
-      .get(`${host}/user/account/${window.sessionStorage["userEmail"]}`)
+      .get(`${host}/api/user/account/${window.sessionStorage["userEmail"]}`)
       .then((res) => {
         console.log(res);
         setOwnedHouses(res.data.ownedHouse);
@@ -42,7 +42,7 @@ function Account() {
   const getUserInfo = () => {
     console.log('getuserinfo');
     axios
-      .get(`${host}/user/${window.sessionStorage["userEmail"]}`)
+      .get(`${host}/api/user/${window.sessionStorage["userEmail"]}`)
       .then((res) => {
         if (res.data.status === true) {
           setLoading(true);
@@ -66,7 +66,7 @@ function Account() {
   // delete ownedhouse
   const handleRemove = (id) => {
     axios
-      .delete(`${host}/user/account/` + id)
+      .delete(`${host}/api/user/account/` + id)
       .then((res) => {
         const x = ownedHouses.filter((it) => it._id != id);
         setOwnedHouses(x);

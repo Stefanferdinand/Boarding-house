@@ -14,12 +14,14 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+// app.disable('etag');
+
 app.use(express.static(path.join(__dirname, "client", "build")));
 
-app.use("/auth", authRoute);
-app.use("/user", userRoute);
-app.use("/browse", browseRoute);
-app.use("/house", houseRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
+app.use("/api/browse", browseRoute);
+app.use("/api/house", houseRoute);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));

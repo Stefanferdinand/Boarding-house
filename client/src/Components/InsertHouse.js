@@ -50,7 +50,7 @@ function InsertHouse() {
     };
 
     axios
-      .post(`${host}/user/insertHouse`, data)
+      .post(`${host}/api/user/insertHouse`, data)
       .then((res) => {
         if (res.data.status == false) {
           setErrorMsg(res.data.msg);

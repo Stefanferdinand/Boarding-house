@@ -8,9 +8,9 @@ function Browse() {
 
   const getAllHouse = () => {
     axios
-      .get(`${host}/browse`)
+      .get(`${host}/api/browse`)
       .then((res) => {
-        console.log(res);
+       
         setHouses(res.data);
       })
       .catch((err) => {
@@ -19,8 +19,6 @@ function Browse() {
   };
 
   useEffect(() => {
-    console.log('useeffect');
-    console.log(houses.length);
     getAllHouse();
   }, []);
 

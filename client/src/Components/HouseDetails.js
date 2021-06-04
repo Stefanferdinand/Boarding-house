@@ -22,7 +22,7 @@ function HouseDetails() {
     const id = arr[arr.length - 1];
 
     axios
-      .get(`${host}/house/${id}`)
+      .get(`${host}/api/house/${id}`)
       .then((res) => {
         const data = res.data;
         setHouse(data.house);
@@ -56,7 +56,7 @@ function HouseDetails() {
       };
 
       axios
-        .post(`${host}/house/`, data)
+        .post(`${host}/api/house/`, data)
         .then((res) => {
           let x = res.data;
           if (x.status === false) {

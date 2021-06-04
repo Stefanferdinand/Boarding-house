@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import removeIcon from "../images/remove-icon.png";
-import host from "../host";
 import { Link, Redirect } from "react-router-dom";
 
 function OwnedHouse(props) {

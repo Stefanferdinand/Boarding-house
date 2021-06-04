@@ -53,7 +53,7 @@ function UpdateHouse() {
     };
 
     axios
-      .put(`${host}/user/updateHouse/${urlParam}`, data)
+      .put(`${host}/api/user/updateHouse/${urlParam}`, data)
       .then((res) => {
         if (res.data.status == false) {
           setErrorMsg(res.data.msg);
@@ -67,7 +67,7 @@ function UpdateHouse() {
   };
 
   const getHouseData = () => {
-      axios.get(`${host}/user/updateHouse/${urlParam}`)
+      axios.get(`${host}/api/user/updateHouse/${urlParam}`)
       .then((res) => {
         
         const data = res.data;
