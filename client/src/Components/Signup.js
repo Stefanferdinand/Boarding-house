@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./Navigation";
 import AuthForm from "./AuthForm";
+import "../styles/authform.css";
 
 function Signup() {
   return (

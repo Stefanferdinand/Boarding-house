@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Redirect } from "react-router";
 import host from "../host";
+import "../styles/insert-update.css";
 
 function InsertHouse() {
 
@@ -64,7 +65,7 @@ function InsertHouse() {
   };
 
   return (
-    <div className="ad-house-container">
+    <div className="insert-update-house-container">
       {logged === "true" ? null : <Redirect to="/auth/signin" />}
       {success === true ? <Redirect to="/" /> : null}
       <div className="mb-4">

@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import accountLogo from "../images/account-logo.png";
 import axios from "axios";
 import host from "../host";
+import "../styles/account.css";
 
 import OwnedHouse from "./OwnedHouse";
 import OrderedHouse from "./OrderedHouse";

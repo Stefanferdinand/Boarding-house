@@ -1,0 +1,67 @@
+.account-logo {
+    width: 260px;
+}
+
+.account-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-container span {
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.account-btn-container {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.account-btn {
+    width: 200px;
+}
+
+.account-own-ordered-container {
+    margin: 150px 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.owned,
+.ordered {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    height: 600px;
+    text-align: center;
+}
+
+.owned-item,
+.ordered-item {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 20px;
+    height: 100%;
+    padding: 0px 50px;
+}
+
+.account-loading {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 40px;
+    top: 110px;
+}
+
+@media only screen and (min-width: 1480px){
+    .owned,
+    .ordered {
+        height: 800px;
+    }
+}

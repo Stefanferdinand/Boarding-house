@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../styles/order-owned-house.css";
 
 function OrderedHouse(props) {
   const [date, setDate] = useState(props.order[0].date.split("T")[0]);

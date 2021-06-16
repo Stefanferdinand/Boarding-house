@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect} from "react";
 import { Redirect } from "react-router";
 import host from "../host";
+import "../styles/insert-update.css";
 
 function UpdateHouse() {
   
@@ -91,7 +92,7 @@ function UpdateHouse() {
   }, [])
 
   return (
-    <div className="ad-house-container">
+    <div className="insert-update-house-container">
       {logged === "true" ? null : <Redirect to="/auth/signin" />}
       {success === true ? <Redirect to="/user/account" /> : null}
       {loading === true ? <div className="spinner-border account-loading" role="status"></div> : null}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import host from "../host";
+import "../styles/details.css";
 
 import dropdownIcon from "../images/dropdown-icon.png";
 import accountLogo from "../images/account-logo.png";

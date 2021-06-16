@@ -1,0 +1,66 @@
+.owned-container,
+.ordered-container {
+    display: flex;
+    align-items: center;
+    text-align: start;
+    padding: 40px 0px;
+}
+
+.owned-image,
+.ordered-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px; 
+}
+
+.owned-image-container{
+    width: 150px;
+    height: 220px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.owned-container span,
+.ordered-container span {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 160px;
+    text-align: center;
+}
+
+.owned-container .remove-logo {
+    width: 70px;
+    height: 40px;
+    padding-left: 30px;
+    margin: 0px;
+}
+
+.owned-container .remove-btn {
+    outline: none;
+    border: none;
+    background-color: inherit;
+}
+
+.update-btn{
+    padding: 6px;
+    width: 100px;
+}
+
+.ordered-image-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-right: 50px;
+}
+
+.ordered-image-container span {
+    padding-right: 10px;
+    margin-top: 10px;
+}
+
+.ordered-container > span, .owned-container > span, .remove-btn {
+    padding-bottom: 80px;
+}
