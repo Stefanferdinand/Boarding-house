@@ -2,19 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "./Card";
 import host from "../host";
+import "../styles/browse.css";
 
 function Browse() {
   const [houses, setHouses] = useState([]);
-  const [noData, setNoData] = useState(true);
 
   const getAllHouse = () => {
     axios
-      .get(`${host}/browse/`)
+      .get(`${host}/api/browse`)
       .then((res) => {
+       
         setHouses(res.data);
-        if (res.data.length > 0) setNoData(false);
-
-        // console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -27,7 +25,7 @@ function Browse() {
 
   return (
     <div>
-      {houses.length == 0 ? (
+      {houses.length === 0 ? (
         <div className="d-flex justify-content-center align-items-center flex-md-column">
           <div className="spinner-border loading" role="status"></div>
           <div className="mt-4">

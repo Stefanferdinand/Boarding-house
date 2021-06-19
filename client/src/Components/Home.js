@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import homeImg from "../images/home-img.jpg";
+import "../styles/home.css";
 
 function Home() {
   const [show, setShow] = useState(false);
@@ -15,7 +16,7 @@ function Home() {
   };
 
   return (
-    <div className="flex justify-content-around mr-5 ml-5 mt-5 pt-5">
+    <div className="flex justify-content-around home-container">
       {show === true ? <Redirect to="/browse" /> : null}
       {ads === true ? (
         window.sessionStorage.length > 0 ? (

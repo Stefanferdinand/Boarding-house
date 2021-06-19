@@ -4,6 +4,7 @@ const getBrowse = async (req, res) => {
   try {
     const arrayOfHouse = await house.find();
     res.json(arrayOfHouse);
+    
   } catch (error) {
     res.json(error);
   }

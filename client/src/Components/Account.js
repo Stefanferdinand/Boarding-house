@@ -3,10 +3,10 @@ import { Redirect } from "react-router-dom";
 import accountLogo from "../images/account-logo.png";
 import axios from "axios";
 import host from "../host";
+import "../styles/account.css";
 
 import OwnedHouse from "./OwnedHouse";
 import OrderedHouse from "./OrderedHouse";
-import { set } from "mongoose";
 
 function Account() {
   const [status, setStatus] = useState(
@@ -22,10 +22,13 @@ function Account() {
   const [order, setOrder] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // get ownedhouse dan orderedhouse
   const handleOwnedOrdered = () => {
+    console.log('handleownedordered');
     axios
-      .get(`${host}/user/account/${sessionStorage["userEmail"]}`)
+      .get(`${host}/api/user/account/${window.sessionStorage["userEmail"]}`)
       .then((res) => {
+        console.log(res);
         setOwnedHouses(res.data.ownedHouse);
         setOrderedHouses(res.data.orderedHouse);
         setOrder(res.data.arrOrdered);
@@ -36,9 +39,11 @@ function Account() {
       });
   };
 
+  // mengecek apakah user mempunyai ownedhouse atau orderedhouse
   const getUserInfo = () => {
+    console.log('getuserinfo');
     axios
-      .get(`${host}/user/${sessionStorage["userEmail"]}`)
+      .get(`${host}/api/user/${window.sessionStorage["userEmail"]}`)
       .then((res) => {
         if (res.data.status === true) {
           setLoading(true);
@@ -59,9 +64,10 @@ function Account() {
     setLogout(true);
   };
 
+  // delete ownedhouse
   const handleRemove = (id) => {
     axios
-      .delete(`${host}/user/account/` + id)
+      .delete(`${host}/api/user/account/` + id)
       .then((res) => {
         const x = ownedHouses.filter((it) => it._id != id);
         setOwnedHouses(x);
@@ -72,6 +78,7 @@ function Account() {
   };
 
   useEffect(() => {
+    console.log('useeffect');
     getUserInfo();
   }, []);
 

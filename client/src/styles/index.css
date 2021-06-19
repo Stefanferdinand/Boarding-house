@@ -1,0 +1,54 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.flex {
+  display: flex;
+}
+
+.navlink-text {
+  text-align: center;
+  font-size: 22px;
+}
+
+.loading {
+  width: 200px;
+  height: 200px;
+  margin-top: 200px;
+}
+
+.error-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.error-actions {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.error-actions .btn {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 768px){
+    .navigation{
+      width: 100%;
+      padding-bottom: 20px;
+    }
+
+    .navigation h1{
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .navlink-text-container{
+      margin-left: 0px;
+    }
+
+    .navlink-text{
+      font-size: 12px;
+    }
+
+}

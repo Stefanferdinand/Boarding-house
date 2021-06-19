@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import host from "../host";
+import "../styles/details.css";
 
 import dropdownIcon from "../images/dropdown-icon.png";
 import accountLogo from "../images/account-logo.png";
@@ -22,11 +23,11 @@ function HouseDetails() {
     const id = arr[arr.length - 1];
 
     axios
-      .get(`${host}/house/` + id)
+      .get(`${host}/api/house/${id}`)
       .then((res) => {
         const data = res.data;
         setHouse(data.house);
-        setOwner(data.owner[0]);
+        setOwner(data.owner);
       })
       .catch((err) => {
         console.log(err);
@@ -56,7 +57,7 @@ function HouseDetails() {
       };
 
       axios
-        .post(`${host}/house/`, data)
+        .post(`${host}/api/house/`, data)
         .then((res) => {
           let x = res.data;
           if (x.status === false) {

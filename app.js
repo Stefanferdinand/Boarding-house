@@ -16,10 +16,14 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, "client", "build")));
 
-app.use("/auth", authRoute);
-app.use("/user", userRoute);
-app.use("/browse", browseRoute);
-app.use("/house", houseRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
+app.use("/api/browse", browseRoute);
+app.use("/api/house", houseRoute);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 const CONNECTION_URL =  `mongodb+srv://admin:admin@cluster0.5l5m8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const PORT = process.env.PORT || 5000;

@@ -1,0 +1,5 @@
+.insert-update-house-container {
+    margin: 80px 180px;
+    display: flex;
+    flex-direction: column;
+}

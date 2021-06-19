@@ -9,6 +9,7 @@ import Account from "./Components/Account";
 import InsertHouse from "./Components/InsertHouse";
 import Browse from "./Components/Browse";
 import HouseDetails from "./Components/HouseDetails";
+import UpdateHouse from "./Components/UpdateHouse";
 import NotFound from "./Components/NotFound";
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
           <Route path="/auth/signin" component={Signin} />
           <Route path="/user/account" component={Account} />
           <Route path="/user/insertHouse" component={InsertHouse} />
+          <Route path="/user/updateHouse/:id" component={UpdateHouse} />
+
           <Route path="*" exact={true} component={NotFound} />
           {/*404 page not found must be last route child*/}
         </Switch>

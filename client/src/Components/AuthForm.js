@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import axios from "axios";
 import host from "../host";
+import "../styles/authform.css";
 
 class AuthForm extends Component {
   constructor() {
@@ -31,7 +32,7 @@ class AuthForm extends Component {
       };
 
       axios
-        .post(`${host}/auth/signup`, data)
+        .post(`${host}/api/auth/signup`, data)
         .then((res) => {
           if (res.data.status == false) {
             // if fail
@@ -52,7 +53,7 @@ class AuthForm extends Component {
       };
 
       axios
-        .post(`${host}/auth/signin`, data)
+        .post(`${host}/api/auth/signin`, data)
         .then((res) => {
           if (res.data.status == false) {
             // if fail
@@ -124,7 +125,7 @@ class AuthForm extends Component {
           <input
             type="submit"
             value={this.props.status}
-            className="btn text-light btn-block mt-4 bg-dark mb-2"
+            className="btn text-light btn-block bg-dark mb-2 submit-btn"
           />
           {this.props.status == "Sign In" ? (
             <span>
