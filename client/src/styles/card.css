@@ -71,3 +71,26 @@
     color: rgba(0, 0, 0, 0.5);
 }
 
+@media only screen and (max-width: 768px){
+    .card-item-container {
+        margin-bottom: 50px;
+    }
+
+    .card-img-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card-details {
+        width: 80px;
+        height: 6em; 
+    }
+
+    .card-details span:first-of-type {
+        font-size: 14px;
+    }
+    
+    .card-details span:nth-of-type(2) {
+        font-size: 10px;
+    }
+}

@@ -1,3 +1,19 @@
 .card-container {
     margin: 100px 50px 0px 50px;
 }
+
+@media only screen and (max-width: 768px){
+    .d-flex{
+        flex-direction: column;
+        padding: 5vw;
+    }
+
+    .loading{
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .mt-4{
+        text-align: center;
+    }
+}

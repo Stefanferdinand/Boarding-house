@@ -64,3 +64,45 @@
 .ordered-container > span, .owned-container > span, .remove-btn {
     padding-bottom: 80px;
 }
+
+@media only screen and (max-width: 768px){
+    .owned-container, .ordered-container{
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .owned-image,
+    .ordered-image {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 15px;
+    }
+
+    .owned-image-container, .ordered-image-container{
+        width: 100%;
+        margin: 0;
+        height: 100%;
+    }
+
+    .owned-container span,
+    .ordered-container span {
+        font-size: 16px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .ordered-container span{
+        padding: 0;
+    }
+
+    .owned-container > span, .remove-btn {
+        padding: 10px;
+    }
+
+    .owned-container .remove-logo{
+        padding: 0 15px;
+        margin: 0;
+        width: 70px;
+    }
+
+}

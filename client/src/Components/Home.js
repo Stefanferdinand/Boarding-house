@@ -27,6 +27,9 @@ function Home() {
       ) : null}
       <div>
         <div className="home-text">
+          <div>
+            <img className="img-home-mob" src={homeImg}></img>
+          </div>
           <b className="text-info">All That You Need</b>
           <br />
           <div>

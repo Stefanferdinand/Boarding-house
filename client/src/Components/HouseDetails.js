@@ -99,7 +99,7 @@ function HouseDetails() {
       {errorMsg === "" ? null : alert(errorMsg)}
       {logged === true ? null : <Redirect to="/auth/signin" />}
       {house == undefined ? (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center align-items-center flex-md-column">
           <div className="spinner-border loading" role="status"></div>
         </div>
       ) : (
