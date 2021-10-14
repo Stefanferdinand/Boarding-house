@@ -1,6 +1,6 @@
 # Boarding House
 
-A simple boarding house application built using MERN stack, mongoose, bootstrap, axios, and deployed using Heroku.
+A simple boarding house application built using MERN stack, mongoose, bootstrap, axios, and deployed using Heroku. This project is made by Stefan Ferdinand, Ariantoly, and Raksi Ghaly Rianto for our university group project.
 
 ## Development
 
